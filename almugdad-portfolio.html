@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المقداد بن إسماعيل القاسمي الحسيني</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #f0c040;
+  --gold2: #e8a020;
+  --deep: #050a18;
+  --navy: #0a1628;
+  --blue: #0d2045;
+  --accent: #1a8fff;
+  --accent2: #00d4ff;
+  --purple: #6c3de8;
+  --text: #e8f0ff;
+  --text-muted: #8899bb;
+  --card-bg: rgba(255,255,255,0.04);
+  --card-border: rgba(255,255,255,0.08);
+  --glow: 0 0 40px rgba(26,143,255,0.25);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Cairo',sans-serif;
+  background:var(--deep);
+  color:var(--text);
+  overflow-x:hidden;
+  direction:rtl;
+}
+
+/* GALAXY */
+#galaxy {
+  position:fixed; top:0; left:0;
+  width:100%; height:100%;
+  z-index:0; pointer-events:none;
+}
+
+/* NAV */
+nav {
+  position:fixed; top:0; width:100%; z-index:100;
+  background:rgba(5,10,24,0.88);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--card-border);
+  padding:12px 24px;
+  display:flex; align-items:center; justify-content:space-between;
+}
+.nav-logo { font-size:1.05rem; font-weight:700; color:var(--gold); }
+.nav-links { display:flex; gap:20px; list-style:none; }
+.nav-links a { color:var(--text-muted); text-decoration:none; font-size:.9rem; font-weight:500; transition:color .3s; }
+.nav-links a:hover { color:var(--gold); }
+#lang-btn {
+  background:linear-gradient(135deg,var(--accent),var(--purple));
+  border:none; color:#fff; padding:6px 16px; border-radius:20px;
+  cursor:pointer; font-family:'Cairo',sans-serif; font-size:.85rem; font-weight:600;
+  transition:transform .2s,box-shadow .2s;
+}
+#lang-btn:hover { transform:scale(1.05); box-shadow:0 0 20px rgba(26,143,255,.5); }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+.hamburger span { width:24px; height:2px; background:var(--gold); border-radius:2px; transition:.3s; }
+
+/* MAIN */
+main { position:relative; z-index:1; }
+section { padding:100px 0 60px; }
+.container { max-width:1100px; margin:0 auto; padding:0 24px; }
+
+/* HERO */
+#hero {
+  min-height:100vh; display:flex; align-items:center;
+  justify-content:center; padding-top:80px; text-align:center;
+}
+.hero-inner {
+  display:flex; flex-direction:column; align-items:center; gap:24px;
+  animation:fadeUp .8s ease both;
+}
+.photo-wrap { position:relative; width:160px; height:160px; }
+.photo-wrap img {
+  width:160px; height:160px; border-radius:50%; object-fit:cover;
+  border:3px solid var(--gold);
+  box-shadow:0 0 0 6px rgba(240,192,64,.12), 0 0 60px rgba(240,192,64,.25);
+}
+.photo-ring {
+  position:absolute; inset:-10px; border-radius:50%;
+  border:2px dashed rgba(240,192,64,.35);
+  animation:spin 18s linear infinite;
+}
+.photo-ring::before {
+  content:''; position:absolute; top:6px; left:50%; transform:translateX(-50%);
+  width:8px; height:8px; border-radius:50%; background:var(--gold);
+  box-shadow:0 0 12px var(--gold);
+}
+.hero-name {
+  font-size:clamp(1.3rem,4vw,2rem); font-weight:900; color:var(--gold);
+  text-shadow:0 0 30px rgba(240,192,64,.4); line-height:1.5;
+}
+.hero-title {
+  font-size:clamp(1rem,2.5vw,1.2rem); color:var(--accent2);
+  font-weight:500; letter-spacing:2px;
+}
+.social-icons {
+  display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:8px;
+}
+.social-icons a {
+  display:flex; align-items:center; gap:8px;
+  background:var(--card-bg); border:1px solid var(--card-border);
+  padding:10px 18px; border-radius:30px; text-decoration:none;
+  color:var(--text); font-size:.9rem; font-weight:600;
+  transition:all .3s; backdrop-filter:blur(8px);
+}
+.social-icons a:hover { transform:translateY(-4px); box-shadow:0 8px 30px rgba(26,143,255,.35); }
+.social-icons a.wa { border-color:rgba(37,211,102,.4); }
+.social-icons a.wa:hover { background:rgba(37,211,102,.12); color:#25d366; }
+.social-icons a.fb { border-color:rgba(24,119,242,.4); }
+.social-icons a.fb:hover { background:rgba(24,119,242,.12); color:#1877f2; }
+.social-icons a.em { border-color:rgba(234,67,53,.4); }
+.social-icons a.em:hover { background:rgba(234,67,53,.12); color:#ea4335; }
+.social-icons a.tg { border-color:rgba(0,136,204,.4); }
+.social-icons a.tg:hover { background:rgba(0,136,204,.12); color:#0088cc; }
+.social-icons a svg { width:20px; height:20px; fill:currentColor; flex-shrink:0; }
+.scroll-hint {
+  margin-top:24px; display:flex; flex-direction:column;
+  align-items:center; gap:6px; color:var(--text-muted); font-size:.8rem;
+  animation:pulse 2s infinite;
+}
+.scroll-hint::after {
+  content:''; width:2px; height:40px;
+  background:linear-gradient(var(--accent),transparent); border-radius:2px;
+}
+
+/* SECTION HEADER */
+.sec-header { text-align:center; margin-bottom:50px; }
+.sec-header h2 {
+  font-size:clamp(1.5rem,4vw,2.2rem); font-weight:900;
+  background:linear-gradient(135deg,var(--gold),var(--accent2));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  display:inline-block;
+}
+.sec-header h2::after {
+  content:''; display:block; margin:10px auto 0; width:60px; height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--accent2)); border-radius:2px;
+}
+
+/* ABOUT */
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+.about-card {
+  background:var(--card-bg); border:1px solid var(--card-border);
+  border-radius:20px; padding:28px; backdrop-filter:blur(10px);
+  transition:transform .3s,box-shadow .3s;
+}
+.about-card:hover { transform:translateY(-4px); box-shadow:var(--glow); }
+.about-card h3 { color:var(--gold); font-size:1.05rem; font-weight:700; margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.about-card p { color:var(--text-muted); line-height:1.9; font-size:.93rem; }
+.interests { list-style:none; margin-top:12px; display:flex; flex-direction:column; gap:8px; }
+.interests li { display:flex; align-items:center; gap:10px; color:var(--text-muted); font-size:.9rem; }
+.interests li::before { content:'◆'; color:var(--gold); font-size:.6rem; flex-shrink:0; }
+
+/* SKILLS */
+.skills-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+.skill-item {
+  background:var(--card-bg); border:1px solid var(--card-border);
+  border-radius:14px; padding:20px 22px; backdrop-filter:blur(8px);
+  transition:transform .3s,box-shadow .3s;
+}
+.skill-item:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(26,143,255,.2); }
+.skill-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+.skill-name { font-weight:700; font-size:.93rem; }
+.skill-pct { font-size:.82rem; color:var(--accent2); font-weight:700; }
+.bar-bg { height:7px; background:rgba(255,255,255,.08); border-radius:10px; overflow:hidden; }
+.bar-fill {
+  height:100%; border-radius:10px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  width:0; transition:width 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+/* PROJECTS */
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:22px; }
+.project-card {
+  background:var(--card-bg); border:1px solid var(--card-border);
+  border-radius:20px; overflow:hidden; backdrop-filter:blur(10px);
+  transition:transform .3s,box-shadow .3s; display:flex; flex-direction:column;
+}
+.project-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(26,143,255,.25); }
+.project-thumb {
+  height:150px; background:linear-gradient(135deg,var(--navy),var(--blue));
+  display:flex; align-items:center; justify-content:center; font-size:3rem;
+  border-bottom:1px solid var(--card-border);
+}
+.project-body { padding:20px; flex:1; display:flex; flex-direction:column; gap:8px; }
+.project-body h3 { font-size:1rem; font-weight:700; color:var(--gold); }
+.project-body p { color:var(--text-muted); font-size:.87rem; line-height:1.7; flex:1; }
+.project-link {
+  display:inline-flex; align-items:center; gap:6px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff; text-decoration:none; padding:8px 18px; border-radius:20px;
+  font-size:.85rem; font-weight:600; width:fit-content; margin-top:4px;
+  transition:transform .2s,box-shadow .2s;
+}
+.project-link:hover { transform:scale(1.05); box-shadow:0 4px 20px rgba(26,143,255,.5); }
+.view-all-btn {
+  margin:28px auto 0; display:block; width:fit-content;
+  background:transparent; border:2px solid var(--gold); color:var(--gold);
+  padding:12px 36px; border-radius:30px; font-family:'Cairo',sans-serif;
+  font-size:1rem; font-weight:700; cursor:pointer; transition:all .3s;
+}
+.view-all-btn:hover { background:var(--gold); color:var(--deep); }
+
+/* CERTIFICATES */
+.certs-list { display:flex; flex-direction:column; gap:16px; }
+.cert-card {
+  background:var(--card-bg); border:1px solid var(--card-border);
+  border-radius:16px; padding:20px 22px; backdrop-filter:blur(8px);
+  display:flex; align-items:flex-start; gap:16px;
+  transition:transform .3s,box-shadow .3s;
+}
+.cert-card:hover { transform:translateX(-4px); box-shadow:var(--glow); }
+.cert-icon {
+  width:44px; height:44px; border-radius:12px; flex-shrink:0;
+  background:linear-gradient(135deg,var(--gold),var(--gold2));
+  display:flex; align-items:center; justify-content:center; font-size:1.3rem;
+  box-shadow:0 4px 18px rgba(240,192,64,.3);
+}
+.cert-info { flex:1; }
+.cert-info h4 { font-size:.96rem; font-weight:700; color:var(--text); margin-bottom:5px; }
+.cert-info p { font-size:.84rem; color:var(--text-muted); line-height:1.7; }
+.cert-info small { font-size:.77rem; color:var(--text-muted); margin-top:4px; display:block; }
+.cert-btn {
+  display:inline-block; margin-top:8px;
+  background:rgba(240,192,64,.1); border:1px solid rgba(240,192,64,.3);
+  color:var(--gold); padding:5px 14px; border-radius:14px;
+  font-size:.8rem; font-weight:600; cursor:pointer; text-decoration:none;
+  transition:all .2s; font-family:'Cairo',sans-serif;
+}
+.cert-btn:hover { background:var(--gold); color:var(--deep); }
+.exp-header {
+  margin:36px 0 16px; font-size:1.1rem; font-weight:800; color:var(--accent2);
+  display:flex; align-items:center; gap:10px;
+}
+.exp-header::before { content:''; flex:1; height:1px; background:linear-gradient(90deg,transparent,var(--accent2)); }
+.exp-header::after  { content:''; flex:1; height:1px; background:linear-gradient(90deg,var(--accent2),transparent); }
+
+/* POETRY */
+.poetry-box {
+  margin:60px auto; max-width:700px; padding:40px;
+  border:1px solid var(--card-border); border-radius:24px;
+  background:linear-gradient(135deg,rgba(108,61,232,.12),rgba(26,143,255,.08));
+  backdrop-filter:blur(12px); text-align:center;
+  box-shadow:0 0 60px rgba(108,61,232,.2), 0 0 120px rgba(26,143,255,.1);
+  position:relative; overflow:hidden;
+}
+.poetry-box::before {
+  content:''; position:absolute; inset:0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(240,192,64,.05) 0%,transparent 70%);
+  pointer-events:none; animation:poetryGlow 4s ease-in-out infinite alternate;
+}
+.poetry-box h3 { color:var(--gold); font-size:1rem; margin-bottom:20px; font-weight:700; letter-spacing:2px; }
+.poetry-lines { display:flex; flex-direction:column; gap:10px; }
+.poetry-line {
+  font-family:'Tajawal',sans-serif; font-size:clamp(1rem,2.5vw,1.15rem);
+  font-weight:500; line-height:1.8; animation:colorCycle 8s linear infinite;
+}
+.poetry-line:nth-child(2) { animation-delay:-2s; }
+.poetry-line:nth-child(3) { animation-delay:-4s; }
+.poetry-line:nth-child(4) { animation-delay:-6s; }
+
+/* FOOTER */
+footer {
+  background:rgba(0,0,0,.4); border-top:1px solid var(--card-border);
+  text-align:center; padding:28px; color:var(--text-muted); font-size:.85rem;
+}
+
+/* VISITOR / CV */
+.visitor-widget {
+  display:inline-flex; align-items:center; gap:10px;
+  background:var(--card-bg); border:1px solid var(--card-border);
+  padding:8px 20px; border-radius:30px; margin:4px auto;
+}
+.visitor-dot { width:8px; height:8px; border-radius:50%; background:#00ff88; animation:pulse 1.5s infinite; box-shadow:0 0 8px #00ff88; }
+.cv-btn {
+  display:inline-flex; align-items:center; gap:8px;
+  background:linear-gradient(135deg,var(--gold),var(--gold2)); color:var(--deep);
+  padding:11px 28px; border-radius:30px; font-family:'Cairo',sans-serif;
+  font-size:.95rem; font-weight:800; text-decoration:none; border:none; cursor:pointer;
+  transition:transform .2s,box-shadow .2s; margin-top:8px;
+}
+.cv-btn:hover { transform:translateY(-3px); box-shadow:0 12px 30px rgba(240,192,64,.4); }
+
+/* ANIMATIONS */
+@keyframes fadeUp    { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+@keyframes spin      { from{transform:rotate(0)} to{transform:rotate(360deg)} }
+@keyframes pulse     { 0%,100%{opacity:.5} 50%{opacity:1} }
+@keyframes colorCycle {
+  0%  {color:#f0c040} 20%{color:#00d4ff} 40%{color:#a78bfa}
+  60% {color:#34d399} 80%{color:#fb7185} 100%{color:#f0c040}
+}
+@keyframes poetryGlow { from{opacity:.5} to{opacity:1} }
+
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .7s,transform .7s; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* MOBILE */
+@media(max-width:768px){
+  .about-grid { grid-template-columns:1fr; }
+  .nav-links {
+    display:none; position:fixed; top:58px; right:0; left:0;
+    background:rgba(5,10,24,.97); flex-direction:column;
+    padding:20px; gap:16px; border-bottom:1px solid var(--card-border);
+  }
+  .nav-links.open { display:flex; }
+  .hamburger { display:flex; }
+  section { padding:70px 0 40px; }
+  .cert-card { flex-direction:column; }
+  .poetry-box { padding:28px 18px; margin:40px 16px; }
+}
+</style>
+</head>
+<body>
+
+<canvas id="galaxy"></canvas>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">المقداد القاسمي</div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about"    class="t" data-ar="عن نفسي"  data-en="About">عن نفسي</a></li>
+    <li><a href="#skills"   class="t" data-ar="المهارات" data-en="Skills">المهارات</a></li>
+    <li><a href="#projects" class="t" data-ar="المشاريع" data-en="Projects">المشاريع</a></li>
+    <li><a href="#certs"    class="t" data-ar="الشهادات" data-en="Certificates">الشهادات</a></li>
+  </ul>
+  <div style="display:flex;gap:12px;align-items:center">
+    <button id="lang-btn" onclick="toggleLang()">EN</button>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="photo-wrap">
+      <img src="https://api.dicebear.com/7.x/initials/svg?seed=MQ&backgroundColor=0a1628&textColor=f0c040&fontSize=38" alt="المقداد">
+      <div class="photo-ring"></div>
+    </div>
+
+    <h1 class="hero-name t" data-ar="المهندس/ المقداد بن إسماعيل بن الخليفة مرغني القاسمي الحسيني" data-en="Eng. Al-Muqdad bin Ismail Al-Qasimi Al-Husseini">
+      المهندس/ المقداد بن إسماعيل بن الخليفة مرغني القاسمي الحسيني
+    </h1>
+    <p class="hero-title t" data-ar="مهندس حاسوب وتقنية المعلومات" data-en="Computer & Information Technology Engineer">
+      مهندس حاسوب وتقنية المعلومات
+    </p>
+
+    <div class="social-icons">
+      <a href="https://wa.me/249903440956" class="wa" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <span class="t" data-ar="واتساب" data-en="WhatsApp">واتساب</span>
+      </a>
+      <a href="https://facebook.com" class="fb" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        <span class="t" data-ar="فيسبوك" data-en="Facebook">فيسبوك</span>
+      </a>
+      <a href="mailto:Almegdadismail0@gmail.com" class="em">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <span class="t" data-ar="البريد" data-en="Email">البريد</span>
+      </a>
+      <a href="https://t.me/+249903440956" class="tg" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        <span class="t" data-ar="تيليجرام" data-en="Telegram">تيليجرام</span>
+      </a>
+    </div>
+
+    <a href="#" class="cv-btn" onclick="alert('يمكنك رفع ملف السيرة الذاتية PDF وتحديث الرابط هنا')">
+      <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a1 1 0 011 1v10.586l3.293-3.293a1 1 0 011.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L11 13.586V3a1 1 0 011-1zm-9 18a1 1 0 011-1h16a1 1 0 010 2H4a1 1 0 01-1-1z"/></svg>
+      <span class="t" data-ar="تحميل السيرة الذاتية" data-en="Download CV">تحميل السيرة الذاتية</span>
+    </a>
+
+    <div class="visitor-widget">
+      <div class="visitor-dot"></div>
+      <span class="t" data-ar="عدد الزيارات: " data-en="Visits: ">عدد الزيارات: </span>
+      <strong id="visitCount" style="color:var(--gold)">0</strong>
+    </div>
+
+    <div class="scroll-hint t" data-ar="اكتشف المزيد" data-en="Explore more">اكتشف المزيد</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="sec-header reveal">
+      <h2 class="t" data-ar="عن نفسي" data-en="About Me">عن نفسي</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-card reveal">
+        <h3>🎓 <span class="t" data-ar="التعليم والخبرة" data-en="Education & Experience">التعليم والخبرة</span></h3>
+        <p class="t"
+          data-ar="درست لنيل درجة البكالوريوس في مجال تقنية المعلومات في جامعة Bhagwant، أجمير، جمهورية الهند. وعملت في نفس المجال داخل الهند لأكثر من عامين وحصلت على دورات تدريبية في البرمجة وشتى مجالات الحاسوب."
+          data-en="I studied for my Bachelor's degree in Information Technology at Bhagwant University, Ajmer, India. I worked in the same field within India for more than two years and received training in programming and various computer fields.">
+          درست لنيل درجة البكالوريوس في مجال تقنية المعلومات في جامعة Bhagwant، أجمير، جمهورية الهند. وعملت في نفس المجال داخل الهند لأكثر من عامين وحصلت على دورات تدريبية في البرمجة وشتى مجالات الحاسوب.
+        </p>
+      </div>
+      <div class="about-card reveal">
+        <h3>📍 <span class="t" data-ar="المعلومات الشخصية" data-en="Personal Info">المعلومات الشخصية</span></h3>
+        <p class="t"
+          data-ar="أقطن حالياً بالحلفايا، مدينة بحري، ولاية الخرطوم. أتحدث الإنجليزية بطلاقة والعربية لغتي الأم، وأتعلم الإيطالية والإسبانية والهندية. ولدت عام 1421هـ، 17 رمضان، في الخرطوم، جمهورية السودان."
+          data-en="I currently reside in Al-Halfaya, Bahri City, Khartoum. I speak English fluently, Arabic is my mother tongue, and I am learning Italian, Spanish, and Hindi. Born 1421 AH, 17th Ramadan, Khartoum, Sudan.">
+          أقطن حالياً بالحلفايا، مدينة بحري، ولاية الخرطوم. أتحدث الإنجليزية بطلاقة والعربية لغتي الأم، وأتعلم الإيطالية والإسبانية والهندية. ولدت عام 1421هـ، 17 رمضان، في الخرطوم، جمهورية السودان.
+        </p>
+      </div>
+      <div class="about-card reveal" style="grid-column:1/-1">
+        <h3>💡 <span class="t" data-ar="الاهتمامات" data-en="Interests">الاهتمامات</span></h3>
+        <ul class="interests">
+          <li class="t" data-ar="إنشاء وتطوير صفحات الويب"    data-en="Creating and developing web pages">إنشاء وتطوير صفحات الويب</li>
+          <li class="t" data-ar="تدريس علوم الحاسوب"          data-en="Teaching computer science">تدريس علوم الحاسوب</li>
+          <li class="t" data-ar="الذكاء الاصطناعي"            data-en="Artificial Intelligence">الذكاء الاصطناعي</li>
+          <li class="t" data-ar="لغات البرمجة: Python و Java"  data-en="Programming: Python & Java">لغات البرمجة: Python و Java</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="sec-header reveal">
+      <h2 class="t" data-ar="المهارات" data-en="Skills">المهارات</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-item reveal"><div class="skill-top"><span class="skill-name">HTML</span><span class="skill-pct">90%</span></div><div class="bar-bg"><div class="bar-fill" data-w="90"></div></div></div>
+      <div class="skill-item reveal"><div class="skill-top"><span class="skill-name">CSS</span><span class="skill-pct">85%</span></div><div class="bar-bg"><div class="bar-fill" data-w="85"></div></div></div>
+      <div class="skill-item reveal"><div class="skill-top"><span class="skill-name t" data-ar="التصميم الجرافيكي" data-en="Graphic Design">التصميم الجرافيكي</span><span class="skill-pct">80%</span></div><div class="bar-bg"><div class="bar-fill" data-w="80"></div></div></div>
+      <div class="skill-item reveal"><div class="skill-top"><span class="skill-name">Python</span><span class="skill-pct">75%</span></div><div class="bar-bg"><div class="bar-fill" data-w="75"></div></div></div>
+      <div class="skill-item reveal"><div class="skill-top"><span class="skill-name t" data-ar="المترجم المحترف" data-en="Professional Translator">المترجم المحترف</span><span class="skill-pct">95%</span></div><div class="bar-bg"><div class="bar-fill" data-w="95"></div></div></div>
+      <div class="skill-item reveal"><div class="skill-top"><span class="skill-name t" data-ar="الكهرباء العامة" data-en="General Electricity">الكهرباء العامة</span><span class="skill-pct">70%</span></div><div class="bar-bg"><div class="bar-fill" data-w="70"></div></div></div>
+      <div class="skill-item reveal"><div class="skill-top"><span class="skill-name t" data-ar="الإسعافات الأولية" data-en="First Aid">الإسعافات الأولية</span><span class="skill-pct">85%</span></div><div class="bar-bg"><div class="bar-fill" data-w="85"></div></div></div>
+      <div class="skill-item reveal"><div class="skill-top"><span class="skill-name t" data-ar="مجال التدريس" data-en="Teaching">مجال التدريس</span><span class="skill-pct">90%</span></div><div class="bar-bg"><div class="bar-fill" data-w="90"></div></div></div>
+      <div class="skill-item reveal"><div class="skill-top"><span class="skill-name t" data-ar="الإدارة" data-en="Management">الإدارة</span><span class="skill-pct">80%</span></div><div class="bar-bg"><div class="bar-fill" data-w="80"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="sec-header reveal">
+      <h2 class="t" data-ar="المشاريع السابقة" data-en="Previous Projects">المشاريع السابقة</h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-thumb">🏫</div>
+        <div class="project-body">
+          <h3 class="t" data-ar="صفحة مركز إنشون التدريبي" data-en="Inchon Training Center Website">صفحة مركز إنشون التدريبي</h3>
+          <p class="t" data-ar="موقع متكامل لمركز إنشون التدريبي يعرض خدماته وبرامجه التدريبية." data-en="A complete website for Inchon Training Center showcasing its services and training programs.">موقع متكامل لمركز إنشون التدريبي يعرض خدماته وبرامجه التدريبية.</p>
+          <a href="https://tafu0793-coder.github.io/inchon-/" target="_blank" class="project-link">🔗 <span class="t" data-ar="عرض المشروع" data-en="View Project">عرض المشروع</span></a>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-thumb">⚙️</div>
+        <div class="project-body">
+          <h3 class="t" data-ar="صفحة إدارة المركز" data-en="Center Management Page">صفحة إدارة المركز</h3>
+          <p class="t" data-ar="نظام إداري متكامل للمركز يتيح متابعة العمليات والبيانات بشكل احترافي." data-en="A comprehensive management system for professional administrative oversight.">نظام إداري متكامل للمركز يتيح متابعة العمليات والبيانات بشكل احترافي.</p>
+          <a href="https://tafu0793-coder.github.io/admin-inchon/" target="_blank" class="project-link">🔗 <span class="t" data-ar="عرض المشروع" data-en="View Project">عرض المشروع</span></a>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-thumb">📚</div>
+        <div class="project-body">
+          <h3 class="t" data-ar="نظام إدارة المدرسة الثانوية" data-en="High School Management System">نظام إدارة المدرسة الثانوية</h3>
+          <p class="t" data-ar="نظام متعدد الحسابات: المدير (صلاحيات كاملة)، مسؤول القبول والتقييم، وحسابات متخصصة أخرى." data-en="Multi-account system: Manager (full access), Admissions Officer, and other specialized accounts.">نظام متعدد الحسابات: المدير (صلاحيات كاملة)، مسؤول القبول والتقييم، وحسابات متخصصة.</p>
+          <a href="#" class="project-link" onclick="alert('قريباً...');return false">🔗 <span class="t" data-ar="قريباً" data-en="Coming Soon">قريباً</span></a>
+        </div>
+      </div>
+    </div>
+    <button class="view-all-btn reveal t" data-ar="عرض جميع المشاريع" data-en="View All Projects">عرض جميع المشاريع</button>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certs">
+  <div class="container">
+    <div class="sec-header reveal">
+      <h2 class="t" data-ar="الشهادات" data-en="Certificates">الشهادات</h2>
+    </div>
+
+    <div class="certs-list">
+      <!-- Bachelor -->
+      <div class="cert-card reveal">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-info">
+          <h4 class="t" data-ar="بكالوريوس تقنية المعلومات" data-en="Bachelor of Information Technology">بكالوريوس تقنية المعلومات</h4>
+          <p class="t" data-ar="جامعة Bhagwant، أجمير، الهند – 2024" data-en="Bhagwant University, Ajmer, India – 2024">جامعة Bhagwant، أجمير، الهند – 2024</p>
+          <a href="#" class="cert-btn t" data-ar="عرض الشهادة" data-en="View Certificate">عرض الشهادة</a>
+        </div>
+      </div>
+      <!-- Programming -->
+      <div class="cert-card reveal">
+        <div class="cert-icon">💻</div>
+        <div class="cert-info">
+          <h4 class="t" data-ar="شهادة برمجة – ADINA COMPUTERS" data-en="Programming Certificate – ADINA COMPUTERS">شهادة برمجة – ADINA COMPUTERS</h4>
+          <p class="t" data-ar="Python و Java، تصميم صفحات الويب، كاميرات المراقبة، إدارة Tally" data-en="Python & Java, Web Design, CCTV, Tally Management">Python و Java، تصميم صفحات الويب، كاميرات المراقبة، إدارة Tally</p>
+          <a href="#" class="cert-btn t" data-ar="عرض الشهادة" data-en="View Certificate">عرض الشهادة</a>
+        </div>
+      </div>
+      <!-- Academic -->
+      <div class="cert-card reveal">
+        <div class="cert-icon">🌐</div>
+        <div class="cert-info">
+          <h4 class="t" data-ar="شهادة أكاديمية" data-en="Academic Certificate">شهادة أكاديمية</h4>
+          <p class="t" data-ar="الشبكات، صيانة الحاسوب، التطبيقات العامة، والتصميم الجرافيكي" data-en="Networks, Computer Maintenance, General Applications, Graphic Design">الشبكات، صيانة الحاسوب، التطبيقات العامة، والتصميم الجرافيكي</p>
+          <a href="#" class="cert-btn t" data-ar="عرض الشهادة" data-en="View Certificate">عرض الشهادة</a>
+        </div>
+      </div>
+      <!-- First Aid -->
+      <div class="cert-card reveal">
+        <div class="cert-icon">🏥</div>
+        <div class="cert-info">
+          <h4 class="t" data-ar="شهادة الإسعافات الأولية" data-en="First Aid Certificate">شهادة الإسعافات الأولية</h4>
+          <p class="t" data-ar="دورة مكثفة من الهلال الأحمر وجامعة كرري – نظري وعملي" data-en="Intensive course from the Red Crescent and Karary University – theoretical & practical">دورة مكثفة من الهلال الأحمر وجامعة كرري – نظري وعملي</p>
+          <a href="#" class="cert-btn t" data-ar="عرض الشهادة" data-en="View Certificate">عرض الشهادة</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-header reveal t" data-ar="شهادات الخبرة" data-en="Experience Certificates">شهادات الخبرة</div>
+
+    <div class="certs-list">
+      <!-- IT Head -->
+      <div class="cert-card reveal">
+        <div class="cert-icon">🏫</div>
+        <div class="cert-info">
+          <h4 class="t" data-ar="رئيس قسم الحاسوب وتقنية المعلومات" data-en="Head of IT Department – Educational Institution">رئيس قسم الحاسوب وتقنية المعلومات</h4>
+          <p class="t" data-ar="مؤسسة تعليمية في الهند (روضة إلى الصف الثاني عشر) – 2023 إلى 2025" data-en="Educational institution in India (KG–Grade 12) – 2023 to 2025">مؤسسة تعليمية في الهند (روضة إلى الصف الثاني عشر) – 2023 إلى 2025</p>
+          <small>للتحقق: <span dir="ltr">qalampublicschool@gmail.com</span></small>
+          <a href="#" class="cert-btn t" data-ar="عرض الشهادة" data-en="View Certificate">عرض الشهادة</a>
+        </div>
+      </div>
+      <!-- Islamic Foundation -->
+      <div class="cert-card reveal">
+        <div class="cert-icon">🌟</div>
+        <div class="cert-info">
+          <h4 class="t" data-ar="مسؤول تقنية المعلومات والترجمة – المؤسسة الإسلامية المثلى، الهند" data-en="IT & Translation Officer – Islamic Ideal Foundation, India">مسؤول تقنية المعلومات والترجمة – المؤسسة الإسلامية المثلى، الهند</h4>
+          <p class="t" data-ar="2023 حتى الآن | ترجمة المناهج، تطوير مناهج عربية-إنجليزية تفاعلية، تصميم إلكتروني" data-en="2023–Present | Curriculum translation, interactive Arabic-English curricula, electronic design">2023 حتى الآن | ترجمة المناهج وتطوير المناهج التفاعلية والتصميم الإلكتروني</p>
+          <small>للتحقق: <span dir="ltr">+91 62600 05487</span></small>
+          <a href="#" class="cert-btn t" data-ar="عرض الشهادة" data-en="View Certificate">عرض الشهادة</a>
+        </div>
+      </div>
+      <!-- Regency Hotel -->
+      <div class="cert-card reveal">
+        <div class="cert-icon">🏨</div>
+        <div class="cert-info">
+          <h4 class="t" data-ar="دورة تدريبية – فندق ريجنسي الخرطوم (سابقاً لو ميريدان)" data-en="Training – Regency Hotel Khartoum (formerly Le Méridien)">دورة تدريبية – فندق ريجنسي الخرطوم (سابقاً لو ميريدان)</h4>
+          <p class="t" data-ar="شهران في قسم تقنية المعلومات: الدعم الفني، إدارة الشبكات، الأعمال المكتبية" data-en="Two months in IT: Technical Support, Network Management, Office Work">شهران في قسم تقنية المعلومات: الدعم الفني، إدارة الشبكات، الأعمال المكتبية</p>
+          <small>للتحقق: <span dir="ltr">+249997896218</span></small>
+          <a href="#" class="cert-btn t" data-ar="عرض الشهادة" data-en="View Certificate">عرض الشهادة</a>
+        </div>
+      </div>
+      <!-- Quran Teacher -->
+      <div class="cert-card reveal">
+        <div class="cert-icon">📖</div>
+        <div class="cert-info">
+          <h4 class="t" data-ar="مدرس بمدرسة تاج الحافظين (الخيلة) – 2015 إلى 2019" data-en="Teacher – Taj Al-Hafizin School – 2015 to 2019">مدرس بمدرسة تاج الحافظين (الخيلة) – 2015 إلى 2019</h4>
+          <p class="t" data-ar="تعليم وحفظ القرآن الكريم، التجويد، والعلوم الإسلامية. أعمال تطوعية في عدة مدارس." data-en="Teaching Holy Quran memorization, Tajweed, Islamic Sciences. Voluntary work in several schools.">تعليم وحفظ القرآن الكريم، التجويد، والعلوم الإسلامية. أعمال تطوعية في عدة مدارس.</p>
+          <a href="#" class="cert-btn t" data-ar="عرض الشهادة" data-en="View Certificate">عرض الشهادة</a>
+        </div>
+      </div>
+      <!-- Syndicate -->
+      <div class="cert-card reveal">
+        <div class="cert-icon">👑</div>
+        <div class="cert-info">
+          <h4 class="t" data-ar="نائب رئيس نقابة التسعين القاسميين الحسينيين الأشراف" data-en="Vice President – Ninety Qasimi Husseini Masters Syndicate">نائب رئيس نقابة التسعين القاسميين الحسينيين الأشراف</h4>
+          <p class="t" data-ar="المسؤول العام للشؤون الإدارية والتنفيذية والعلاقات العامة" data-en="General Official for Administrative, Executive Work and Public Relations">المسؤول العام للشؤون الإدارية والتنفيذية والعلاقات العامة</p>
+          <small>للتحقق: <span dir="ltr">Hashemis.sd@gmail.com | +249 11 879 0042</span></small>
+          <a href="#" class="cert-btn t" data-ar="عرض الشهادة" data-en="View Certificate">عرض الشهادة</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POETRY -->
+<div class="container">
+  <div class="poetry-box reveal">
+    <h3>✨ <span class="t" data-ar="من وحي القلم" data-en="Verses of Inspiration">من وحي القلم</span> ✨</h3>
+    <div class="poetry-lines">
+      <div class="poetry-line t" data-ar="يا طالبَ العلم سِر في الدرب بالهمم" data-en="O seeker of knowledge, walk the path with diligence,">يا طالبَ العلم سِر في الدرب بالهمم</div>
+      <div class="poetry-line t" data-ar="فالعلم نورٌ يُضيء العقل والشِّيَم" data-en="For knowledge is a light that illuminates the mind and thought.">فالعلم نورٌ يُضيء العقل والشِّيَم</div>
+      <div class="poetry-line t" data-ar="اصبِر فأعلى المعالي لا تُنال سُدىً" data-en="Be patient, for high honors are not attained in vain,">اصبِر فأعلى المعالي لا تُنال سُدىً</div>
+      <div class="poetry-line t" data-ar="ومن صبَر نالَ عِزاً كلَّه شمَم" data-en="And whoever perseveres shall gain glory and pride.">ومن صبَر نالَ عِزاً كلَّه شمَم</div>
+      <div class="poetry-line t" data-ar="بالعلم نرقى إلى أعلى مراتبنا" data-en="Through knowledge, we rise to our highest ranks,">بالعلم نرقى إلى أعلى مراتبنا</div>
+      <div class="poetry-line t" data-ar="ونجد فيه ضياءً في دُجى الظُّلَم" data-en="And we find light through it in the deepest darkness.">ونجد فيه ضياءً في دُجى الظُّلَم</div>
+      <div class="poetry-line t" data-ar="هو السلاحُ إذا الجهلُ أحاط بنا" data-en="It is the weapon when ignorance assails us,">هو السلاحُ إذا الجهلُ أحاط بنا</div>
+      <div class="poetry-line t" data-ar="وهو الحياةُ لأرواحٍ بلا سأَم" data-en="And it is the life for souls without weariness.">وهو الحياةُ لأرواحٍ بلا سأَم</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    <span style="color:var(--gold);font-weight:700" class="t" data-ar="المهندس المقداد القاسمي الحسيني" data-en="Eng. Al-Muqdad Al-Qasimi Al-Husseini">المهندس المقداد القاسمي الحسيني</span>
+    <br>
+    <span dir="ltr">Almegdadismail0@gmail.com | +249 90 344 0956</span>
+    <br><br>
+    <span style="font-size:.8rem" class="t" data-ar="© 2025 جميع الحقوق محفوظة" data-en="© 2025 All Rights Reserved">© 2025 جميع الحقوق محفوظة</span>
+  </p>
+</footer>
+
+<script>
+// ── GALAXY ──
+const canvas = document.getElementById('galaxy');
+const ctx = canvas.getContext('2d');
+let W, H, stars = [], planets = [];
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+class Star {
+  constructor() { this.reset(true); }
+  reset(init) {
+    this.x = Math.random() * W;
+    this.y = init ? Math.random() * H : 0;
+    this.r = Math.random() * 1.5 + 0.2;
+    this.speed = Math.random() * 0.15 + 0.04;
+    this.alpha = Math.random() * 0.8 + 0.2;
+    this.color = Math.random() > 0.85 ? '#f0c040' : Math.random() > 0.5 ? '#00d4ff' : '#ffffff';
+    this.twinkle = Math.random() * Math.PI * 2;
+  }
+  draw() {
+    this.twinkle += 0.02;
+    const a = this.alpha * (0.7 + 0.3 * Math.sin(this.twinkle));
+    ctx.save();
+    ctx.globalAlpha = a;
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fillStyle = this.color;
+    ctx.fill();
+    ctx.restore();
+  }
+  update() {
+    this.y += this.speed;
+    this.x -= this.speed * 0.1;
+    if (this.y > H || this.x < 0) this.reset(false);
+  }
+}
+
+class Planet {
+  constructor() { this.reset(true); }
+  reset(init) {
+    this.x = Math.random() * W;
+    this.y = init ? Math.random() * H : -120;
+    this.r = Math.random() * 18 + 8;
+    this.speed = Math.random() * 0.04 + 0.015;
+    this.hue1 = Math.random() * 360;
+    this.hue2 = (this.hue1 + 40) % 360;
+    this.alpha = Math.random() * 0.25 + 0.08;
+    this.rings = Math.random() > 0.5;
+  }
+  draw() {
+    ctx.save();
+    ctx.globalAlpha = this.alpha;
+    const g = ctx.createRadialGradient(this.x - this.r * 0.3, this.y - this.r * 0.3, 0, this.x, this.y, this.r);
+    g.addColorStop(0, 'hsl(' + this.hue1 + ',55%,45%)');
+    g.addColorStop(1, 'hsl(' + this.hue2 + ',45%,18%)');
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+    ctx.fillStyle = g;
+    ctx.fill();
+    if (this.rings) {
+      ctx.globalAlpha = this.alpha * 0.5;
+      ctx.beginPath();
+      ctx.ellipse(this.x, this.y, this.r * 1.8, this.r * 0.38, -0.3, 0, Math.PI * 2);
+      ctx.strokeStyle = 'hsl(' + this.hue1 + ',55%,55%)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+  update() {
+    this.y += this.speed;
+    if (this.y > H + 120) this.reset(false);
+  }
+}
+
+for (let i = 0; i < 220; i++) stars.push(new Star());
+for (let i = 0; i < 6; i++) planets.push(new Planet());
+
+function drawNebula() {
+  const n = [
+    { x: W * 0.2, y: H * 0.3, r: 260, c: 'rgba(108,61,232,0.04)' },
+    { x: W * 0.8, y: H * 0.6, r: 310, c: 'rgba(26,143,255,0.05)' },
+    { x: W * 0.5, y: H * 0.85, r: 220, c: 'rgba(240,192,64,0.03)' }
+  ];
+  n.forEach(function(nb) {
+    const g = ctx.createRadialGradient(nb.x, nb.y, 0, nb.x, nb.y, nb.r);
+    g.addColorStop(0, nb.c);
+    g.addColorStop(1, 'transparent');
+    ctx.beginPath();
+    ctx.arc(nb.x, nb.y, nb.r, 0, Math.PI * 2);
+    ctx.fillStyle = g;
+    ctx.fill();
+  });
+}
+
+function animate() {
+  ctx.clearRect(0, 0, W, H);
+  drawNebula();
+  planets.forEach(function(p) { p.update(); p.draw(); });
+  stars.forEach(function(s) { s.update(); s.draw(); });
+  requestAnimationFrame(animate);
+}
+animate();
+
+// ── SCROLL REVEAL ──
+var reveals = document.querySelectorAll('.reveal');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('.bar-fill').forEach(function(b) {
+        b.style.width = b.getAttribute('data-w') + '%';
+      });
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(function(r) { observer.observe(r); });
+
+// ── LANGUAGE ──
+var isAr = true;
+function toggleLang() {
+  isAr = !isAr;
+  document.getElementById('lang-btn').textContent = isAr ? 'EN' : 'AR';
+  document.documentElement.setAttribute('lang', isAr ? 'ar' : 'en');
+  document.documentElement.setAttribute('dir', isAr ? 'rtl' : 'ltr');
+  document.querySelectorAll('.t').forEach(function(el) {
+    var val = isAr ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+    if (val) el.textContent = val;
+  });
+}
+
+// ── MOBILE MENU ──
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+document.querySelectorAll('.nav-links a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    document.getElementById('navLinks').classList.remove('open');
+  });
+});
+
+// ── VISITOR COUNTER ──
+try {
+  var v = parseInt(localStorage.getItem('visits') || '0') + 1;
+  localStorage.setItem('visits', v);
+  var counter = document.getElementById('visitCount');
+  var c = 0;
+  var timer = setInterval(function() {
+    c += Math.max(1, Math.ceil(v / 40));
+    if (c >= v) { c = v; clearInterval(timer); }
+    counter.textContent = c;
+  }, 30);
+} catch(e) {
+  document.getElementById('visitCount').textContent = '—';
+}
+
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var href = a.getAttribute('href');
+    if (href.length > 1) {
+      e.preventDefault();
+      var target = document.querySelector(href);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
