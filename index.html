@@ -447,7 +447,9 @@ footer {
     <div class="sec-header reveal">
       <h2 class="t" data-ar="المشاريع السابقة" data-en="Previous Projects">المشاريع السابقة</h2>
     </div>
-    <div class="projects-grid">
+
+    <!-- ★ MAIN PROJECTS (always visible) -->
+    <div class="projects-grid" id="mainProjects">
       <div class="project-card reveal">
         <div class="project-thumb">🏫</div>
         <div class="project-body">
@@ -468,11 +470,53 @@ footer {
         <div class="project-thumb">📚</div>
         <div class="project-body">
           <h3 class="t" data-ar="نظام إدارة المدرسة الثانوية" data-en="High School Management System">نظام إدارة المدرسة الثانوية</h3>
-          <p class="t" data-ar="نظام متعدد الحسابات: المدير (صلاحيات كاملة)، مسؤول القبول والتقييم، ومسؤول الحضور والغياب والحسابات." data-en="Multi-account system: Manager (full access), Admissions Officer, and other specialized accounts.">نظام متعدد الحسابات: المدير (صلاحيات كاملة)، مسؤول القبول والتقييم، وحسابات متخصصة.</p>
-          <a href="https://tafu0793-coder.github.io/schooladmin/" target="_blank" class="project-link">🔗 <span class="t" data-ar="عرض المشروع" data-en="View Project">عرض المشروع</span></a>
+          <p class="t" data-ar="نظام متعدد الحسابات: المدير (صلاحيات كاملة)، مسؤول القبول والتقييم، وحسابات متخصصة." data-en="Multi-account system: Manager (full access), Admissions Officer, and other specialized accounts.">نظام متعدد الحسابات: المدير (صلاحيات كاملة)، مسؤول القبول والتقييم، وحسابات متخصصة.</p>
+          <a href="#" class="project-link" onclick="return false">🔗 <span class="t" data-ar="قريباً" data-en="Coming Soon">قريباً</span></a>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-thumb">🛒</div>
+        <div class="project-body">
+          <h3 class="t" data-ar="صفحة المتجر الإلكتروني" data-en="Online Store Website">صفحة المتجر الإلكتروني</h3>
+          <p class="t" data-ar="متجر إلكتروني متكامل يعرض المنتجات ويدعم تجربة تسوق سلسة واحترافية." data-en="A complete online store showcasing products with a smooth and professional shopping experience.">متجر إلكتروني متكامل يعرض المنتجات ويدعم تجربة تسوق سلسة واحترافية.</p>
+          <a href="https://tafu0793-coder.github.io/store/" target="_blank" class="project-link">🔗 <span class="t" data-ar="عرض المشروع" data-en="View Project">عرض المشروع</span></a>
+        </div>
       </div>
     </div>
-    <button class="view-all-btn reveal t" data-ar="عرض جميع المشاريع" data-en="View All Projects">عرض جميع المشاريع</button>
+
+    <!-- ★ EXTRA PROJECTS (hidden, shown on button click) -->
+    <!-- ═══════════════════════════════════════════════════
+         لإضافة مشروع جديد: انسخ البلوك من ▼ إلى ▲ وعدّله
+         ═══════════════════════════════════════════════════ -->
+    <div class="projects-grid" id="extraProjects" style="display:none; margin-top:22px;">
+
+      <!-- ▼ مشروع جديد — عدّل هنا -->
+      <div class="project-card reveal">
+        <div class="project-thumb">🌐</div>
+        <div class="project-body">
+          <h3 class="t" data-ar="مشروع جديد 1" data-en="New Project 1">مشروع جديد 1</h3>
+          <p class="t" data-ar="وصف المشروع هنا." data-en="Project description here.">وصف المشروع هنا.</p>
+          <a href="LINK_HERE" target="_blank" class="project-link">🔗 <span class="t" data-ar="عرض المشروع" data-en="View Project">عرض المشروع</span></a>
+        </div>
+      </div>
+      <!-- ▲ -->
+
+      <!-- ▼ مشروع جديد — عدّل هنا -->
+      <div class="project-card reveal">
+        <div class="project-thumb">🖥️</div>
+        <div class="project-body">
+          <h3 class="t" data-ar="مشروع جديد 2" data-en="New Project 2">مشروع جديد 2</h3>
+          <p class="t" data-ar="وصف المشروع هنا." data-en="Project description here.">وصف المشروع هنا.</p>
+          <a href="LINK_HERE" target="_blank" class="project-link">🔗 <span class="t" data-ar="عرض المشروع" data-en="View Project">عرض المشروع</span></a>
+        </div>
+      </div>
+      <!-- ▲ -->
+
+    </div>
+
+    <button class="view-all-btn reveal" id="toggleProjectsBtn" onclick="toggleProjects()">
+      <span class="t" data-ar="عرض جميع المشاريع ▾" data-en="View All Projects ▾">عرض جميع المشاريع ▾</span>
+    </button>
   </div>
 </section>
 
