@@ -702,7 +702,28 @@ footer {
 </footer>
 
 <script>
-// ── CERTIFICATE MODAL ──
+// ── TOGGLE EXTRA PROJECTS ──
+var projectsOpen = false;
+function toggleProjects() {
+  var extra = document.getElementById('extraProjects');
+  var btn   = document.getElementById('toggleProjectsBtn').querySelector('.t');
+  projectsOpen = !projectsOpen;
+  if (projectsOpen) {
+    extra.style.display = 'grid';
+    // trigger reveal for newly shown cards
+    setTimeout(function() {
+      extra.querySelectorAll('.reveal').forEach(function(el) {
+        el.classList.add('visible');
+      });
+    }, 50);
+    if (btn) { btn.setAttribute('data-ar','إخفاء المشاريع ▴'); btn.setAttribute('data-en','Hide Projects ▴'); btn.textContent = isAr ? 'إخفاء المشاريع ▴' : 'Hide Projects ▴'; }
+  } else {
+    extra.style.display = 'none';
+    if (btn) { btn.setAttribute('data-ar','عرض جميع المشاريع ▾'); btn.setAttribute('data-en','View All Projects ▾'); btn.textContent = isAr ? 'عرض جميع المشاريع ▾' : 'View All Projects ▾'; }
+  }
+}
+
+
 function openCert(filename, title) {
   var modal = document.getElementById('certModal');
   var frame = document.getElementById('certFrame');
